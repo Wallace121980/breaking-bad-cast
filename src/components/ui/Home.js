@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Search getQuery={(q) => setQuery(q)} />
+      <Search getQuery={(q) => setQuery(q)} placeholder='Search Characters' />
       <CharacterGrid isLoading={isLoading} items={items} />
     </div>
   );

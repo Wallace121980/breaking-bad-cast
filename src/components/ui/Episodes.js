@@ -11,7 +11,9 @@ const Episodes = () => {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const result = await axios(`https://www.breakingbadapi.com/api/episodes`);
+      const result = await axios(
+        `https://www.breakingbadapi.com/api/episodes?series=${query}`
+      );
 
       console.log(result.data);
 
@@ -25,7 +27,7 @@ const Episodes = () => {
   return (
     <div>
       <Header />
-      <Search getQuery={(q) => setQuery(q)} />
+      <Search getQuery={(q) => setQuery(q)} placeholder='Search Series' />
       <EpisodeGrid isLoading={isLoading} items={items} />
     </div>
   );
