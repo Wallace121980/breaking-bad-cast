@@ -2,7 +2,7 @@ import React from 'react';
 
 const EpisodeItem = ({ item }) => {
   return (
-    <div className='card'>
+    <div className='episode card'>
       <div className='card-inner'>
         <div className='card-front'>
           <h1>{item.title}</h1>

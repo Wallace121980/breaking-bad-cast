@@ -1,3 +1,7 @@
+:root {
+  --d: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,12 +18,17 @@ body {
 
 a {
   text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+  background: linear-gradient(currentColor 0 0) 0 100% / var(--d, 0) 3px
+    no-repeat;
+  transition: 0.5s;
 }
 
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 0 20px;
+  padding: 20px 20px;
 }
 
 .btn {
@@ -31,6 +40,29 @@ a {
   padding: 10px 15px;
   border: 0;
   margin: 10px 0;
+}
+
+nav {
+  font-size: 2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+nav ul li {
+  cursor: pointer;
+  padding: 0.5rem;
+  flex: auto;
+  text-align: center;
+}
+
+nav ul li:hover {
+  --d: 100%;
 }
 
 header {
@@ -107,13 +139,18 @@ input[type='text'] {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #333;
+}
+
+.episode .card-front {
   padding: 20px;
+  background-color: #333;
 }
 
 .card-back {
   color: white;
   transform: rotateY(180deg);
+  padding: 20px;
+  background-color: #333;
 }
 
 .card li {
