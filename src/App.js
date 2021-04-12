@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/ui/Home';
+import Episodes from './components/ui/Episodes';
 import './App.css';
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
         </nav>
         <Switch>
           <Route path='/episodes'>
-            <h1>Episodes</h1>
+            <Episodes />
           </Route>
           <Route path='/quotes'>
             <h1>Quotes</h1>
