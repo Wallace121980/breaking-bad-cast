@@ -1,34 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Header from './components/ui/Header';
-import CharacterGrid from './components/characters/CharacterGrid';
-import Search from './components/ui/Search';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './components/ui/Home';
 import './App.css';
 
 const App = () => {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://www.breakingbadapi.com/api/characters?name=${query}`
-      );
-
-      setItems(result.data);
-      setIsLoading(false);
-    };
-
-    fetchItems();
-  }, [query]);
-
   return (
-    <div className='container'>
-      <Header />
-      <Search getQuery={(q) => setQuery(q)} />
-      <CharacterGrid isLoading={isLoading} items={items} />
-    </div>
+    <Router>
+      <div className='container'>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/episodes'>Episodes</Link>
+            </li>
+            <li>
+              <Link to='/quotes'>Quotes</Link>
+            </li>
+            <li>
+              <Link to='/deaths'>Deaths</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path='/episodes'>
+            <h1>Episodes</h1>
+          </Route>
+          <Route path='/quotes'>
+            <h1>Quotes</h1>
+          </Route>
+          <Route path='/deaths'>
+            <h1>Deaths</h1>
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
