@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './components/ui/Home';
-import Episodes from './components/ui/Episodes';
+import Characters from './components/characters/Characters';
+import Episodes from './components/episodes/Episodes';
+import Quotes from './components/quotes/Quotes';
+import Deaths from './components/deaths/Deaths';
 import './App.css';
 
 const App = () => {
@@ -11,7 +13,7 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/'>Characters</Link>
             </li>
             <li>
               <Link to='/episodes'>Episodes</Link>
@@ -29,13 +31,13 @@ const App = () => {
             <Episodes />
           </Route>
           <Route path='/quotes'>
-            <h1>Quotes</h1>
+            <Quotes />
           </Route>
           <Route path='/deaths'>
-            <h1>Deaths</h1>
+            <Deaths />
           </Route>
           <Route path='/'>
-            <Home />
+            <Characters />
           </Route>
         </Switch>
       </div>

@@ -141,7 +141,9 @@ input[type='text'] {
   backface-visibility: hidden;
 }
 
-.episode .card-front {
+.episode .card-front,
+.quote .card-front,
+.death .card-front {
   padding: 20px;
   background-color: #333;
 }
