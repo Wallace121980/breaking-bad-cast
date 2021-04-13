@@ -2,13 +2,16 @@ import React from 'react';
 import CharacterItem from './CharacterItem';
 import Spinner from '../ui/Spinner';
 
-const CharacterGrid = ({ items, isLoading }) => {
-  return isLoading ? (
+const CharacterGrid = ({ characters, isLoading }) => {
+  return isLoading || characters === null ? (
     <Spinner />
   ) : (
     <section className='cards'>
-      {items.map((item) => (
-        <CharacterItem key={item.char_id} item={item}></CharacterItem>
+      {characters.map((character) => (
+        <CharacterItem
+          key={character.char_id}
+          character={character}
+        ></CharacterItem>
       ))}
     </section>
   );
