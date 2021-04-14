@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from '../../img/logo.png';
+import { StyledHeader } from '../../style';
 
 const Header = () => {
   return (
-    <header className='center'>
+    <StyledHeader>
       <img src={logo} alt='logo' />
-    </header>
+    </StyledHeader>
   );
 };
 

@@ -1,33 +1,32 @@
 import React from 'react';
+import { Card, CardFront, CardBack, CardTitle } from '../../style';
 
 const DeathItem = ({ death }) => {
   return (
-    <div className='death card'>
-      <div className='card-inner'>
-        <div className='card-front'>
-          <h1>{death.death}</h1>
-        </div>
-        <div className='card-back'>
-          <ul>
-            <li>
-              <strong>Cause:</strong> {death.cause}
-            </li>
-            <li>
-              <strong>Responsible:</strong> {death.responsible}
-            </li>
-            <li>
-              <strong>Last Words:</strong> {death.last_words}
-            </li>
-            <li>
-              <strong>Season:</strong> {death.season}
-            </li>
-            <li>
-              <strong>Episode:</strong> {death.episode}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <CardFront>
+        <CardTitle>{death.death}</CardTitle>
+      </CardFront>
+      <CardBack>
+        <ul>
+          <li>
+            <strong>Cause:</strong> {death.cause}
+          </li>
+          <li>
+            <strong>Responsible:</strong> {death.responsible}
+          </li>
+          <li>
+            <strong>Last Words:</strong> {death.last_words}
+          </li>
+          <li>
+            <strong>Season:</strong> {death.season}
+          </li>
+          <li>
+            <strong>Episode:</strong> {death.episode}
+          </li>
+        </ul>
+      </CardBack>
+    </Card>
   );
 };
 

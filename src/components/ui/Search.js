@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { StyledSearch, Input } from '../../style';
 
 const Search = ({ getQuery, placeholder }) => {
   const [text, setText] = useState('');
@@ -9,18 +10,17 @@ const Search = ({ getQuery, placeholder }) => {
   };
 
   return (
-    <section className='search'>
+    <StyledSearch>
       <form>
-        <input
+        <Input
           type='text'
-          className='form-control'
           placeholder={placeholder}
           value={text}
           onChange={(e) => onChange(e.target.value)}
           autoFocus
         />
       </form>
-    </section>
+    </StyledSearch>
   );
 };
 

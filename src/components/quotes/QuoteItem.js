@@ -1,21 +1,20 @@
 import React from 'react';
+import { Card, CardFront, CardBack, CardTitle } from '../../style';
 
 const QuoteItem = ({ quote }) => {
   return (
-    <div className='quote card'>
-      <div className='card-inner'>
-        <div className='card-front'>
-          <h1>{quote.author}</h1>
-        </div>
-        <div className='card-back'>
-          <ul>
-            <li>
-              <strong>Quote:</strong> {quote.quote}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <CardFront>
+        <CardTitle>{quote.author}</CardTitle>
+      </CardFront>
+      <CardBack>
+        <ul>
+          <li>
+            <strong>Quote:</strong> {quote.quote}
+          </li>
+        </ul>
+      </CardBack>
+    </Card>
   );
 };
 
