@@ -1,16 +1,17 @@
 import React from 'react';
 import DeathItem from './DeathItem';
 import Spinner from '../ui/Spinner';
+import { Cards } from '../../style';
 
 const DeathGrid = ({ deaths, isLoading }) => {
   return isLoading || deaths === null ? (
     <Spinner />
   ) : (
-    <section className='cards'>
+    <Cards>
       {deaths.map((death) => (
         <DeathItem key={death.death_id} death={death}></DeathItem>
       ))}
-    </section>
+    </Cards>
   );
 };
 
