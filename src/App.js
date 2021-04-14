@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Characters from './components/characters/Characters';
 import Episodes from './components/episodes/Episodes';
 import Quotes from './components/quotes/Quotes';
@@ -8,11 +9,17 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
 
+const Container = styled.div`
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px 20px;
+`;
+
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <div className='container'>
+        <Container>
           <nav>
             <ul>
               <li>
@@ -43,7 +50,7 @@ const App = () => {
               <Characters />
             </Route>
           </Switch>
-        </div>
+        </Container>
       </Router>
     </Provider>
   );

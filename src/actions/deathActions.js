@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_DEATHS, SET_LOADING } from './types';
 
-// Get characters from api
+// Get deaths from api
 export const getDeaths = (query) => async (dispatch) => {
   try {
     setLoading();

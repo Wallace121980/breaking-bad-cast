@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { GET_QUOTES, SET_LOADING } from './types';
 
-// Get characters from api
-export const getQuotes = (query) => async (dispatch) => {
+// Get quotes from api
+export const getQuotes = () => async (dispatch) => {
   try {
     setLoading();
 

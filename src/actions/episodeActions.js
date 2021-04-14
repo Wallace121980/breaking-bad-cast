@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_EPISODES, SET_LOADING } from './types';
 
-// Get characters from api
+// Get episodes from api
 export const getEpisodes = (query) => async (dispatch) => {
   try {
     setLoading();
