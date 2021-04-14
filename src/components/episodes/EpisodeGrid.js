@@ -2,13 +2,13 @@ import React from 'react';
 import EpisodeItem from './EpisodeItem';
 import Spinner from '../ui/Spinner';
 
-const EpisodeGrid = ({ items, isLoading }) => {
-  return isLoading ? (
+const EpisodeGrid = ({ episodes, isLoading }) => {
+  return isLoading || episodes === null ? (
     <Spinner />
   ) : (
     <section className='cards'>
-      {items.map((item) => (
-        <EpisodeItem key={item.episode_id} item={item}></EpisodeItem>
+      {episodes.map((episode) => (
+        <EpisodeItem key={episode.episode_id} episode={episode}></EpisodeItem>
       ))}
     </section>
   );

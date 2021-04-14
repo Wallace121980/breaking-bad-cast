@@ -1,36 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import Header from '../ui/Header';
 import EpisodeGrid from './EpisodeGrid';
 import Search from '../ui/Search';
+import { getEpisodes } from '../../actions/episodeActions';
 
-const Episodes = () => {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Episodes = ({ episodes: { episodes, loading }, getEpisodes }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://www.breakingbadapi.com/api/episodes?series=${query}`
-      );
-
-      console.log(result.data);
-
-      setItems(result.data);
-      setIsLoading(false);
-    };
-
-    fetchItems();
-  }, [query]);
+    getEpisodes(query);
+  }, [query, getEpisodes]);
 
   return (
     <div>
       <Header />
       <Search getQuery={(q) => setQuery(q)} placeholder='Search Series' />
-      <EpisodeGrid isLoading={isLoading} items={items} />
+      <EpisodeGrid isLoading={loading} episodes={episodes} />
     </div>
   );
 };
 
-export default Episodes;
+const mapStateToProps = (state) => ({
+  episodes: state.episodes,
+});
+
+export default connect(mapStateToProps, { getEpisodes })(Episodes);

@@ -1,22 +1,22 @@
 import React from 'react';
 
-const EpisodeItem = ({ item }) => {
+const EpisodeItem = ({ episode }) => {
   return (
     <div className='episode card'>
       <div className='card-inner'>
         <div className='card-front'>
-          <h1>{item.title}</h1>
+          <h1>{episode.title}</h1>
         </div>
         <div className='card-back'>
           <ul>
             <li>
-              <strong>Air Date:</strong> {item.air_date}
+              <strong>Air Date:</strong> {episode.air_date}
             </li>
             <li>
-              <strong>Season:</strong> {item.season}
+              <strong>Season:</strong> {episode.season}
             </li>
             <li>
-              <strong>Episode:</strong> {item.episode}
+              <strong>Episode:</strong> {episode.episode}
             </li>
           </ul>
         </div>

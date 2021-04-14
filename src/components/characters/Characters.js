@@ -9,18 +9,7 @@ const Characters = ({ characters: { characters, loading }, getCharacters }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    // const fetchItems = async () => {
-    //   const result = await axios(
-    //     `https://www.breakingbadapi.com/api/characters?name=${query}`
-    //   );
-
-    //   setItems(result.data);
-    //   setIsLoading(false);
-    // };
-
     getCharacters(query);
-
-    // fetchItems();
   }, [query, getCharacters]);
 
   return (

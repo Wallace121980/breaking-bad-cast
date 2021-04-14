@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Header from '../ui/Header';
 import DeathGrid from './DeathGrid';
-import Search from '../ui/Search';
+import { getDeaths } from '../../actions/deathActions';
 
-const Deaths = () => {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [query, setQuery] = useState('');
-
+const Deaths = ({ deaths: { deaths, loading }, getDeaths }) => {
   useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(`https://www.breakingbadapi.com/api/deaths`);
-
-      console.log(result.data);
-
-      setItems(result.data);
-      setIsLoading(false);
-    };
-
-    fetchItems();
-  }, [query]);
+    getDeaths();
+  }, [getDeaths]);
 
   return (
     <div>
       <Header />
-      <Search getQuery={(q) => setQuery(q)} placeholder='Search Characters' />
-      <DeathGrid isLoading={isLoading} items={items} />
+      <DeathGrid isLoading={loading} deaths={deaths} />
     </div>
   );
 };
 
-export default Deaths;
+const mapStateToProps = (state) => ({
+  deaths: state.deaths,
+});
+
+export default connect(mapStateToProps, { getDeaths })(Deaths);

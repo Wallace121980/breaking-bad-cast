@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import Header from '../ui/Header';
 import QuoteGrid from './QuoteGrid';
 import Search from '../ui/Search';
+import { getQuotes } from '../../actions/quoteActions';
 
-const Quotes = () => {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Quotes = ({ quotes: { quotes, loading }, getQuotes }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(`https://www.breakingbadapi.com/api/quotes`);
-
-      setItems(result.data);
-      setIsLoading(false);
-    };
-
-    fetchItems();
-  }, [query]);
+    getQuotes();
+  }, [query, getQuotes]);
 
   return (
     <div>
       <Header />
-      <Search getQuery={(q) => setQuery(q)} placeholder='Search Characters' />
-      <QuoteGrid isLoading={isLoading} items={items} />
+      <Search getQuery={(q) => setQuery(q)} placeholder='Search Quotes' />
+      <QuoteGrid isLoading={loading} quotes={quotes} />
     </div>
   );
 };
 
-export default Quotes;
+const mapStateToProps = (state) => ({
+  quotes: state.quotes,
+});
+
+export default connect(mapStateToProps, { getQuotes })(Quotes);

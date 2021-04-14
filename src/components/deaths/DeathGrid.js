@@ -2,13 +2,13 @@ import React from 'react';
 import DeathItem from './DeathItem';
 import Spinner from '../ui/Spinner';
 
-const DeathGrid = ({ items, isLoading }) => {
-  return isLoading ? (
+const DeathGrid = ({ deaths, isLoading }) => {
+  return isLoading || deaths === null ? (
     <Spinner />
   ) : (
     <section className='cards'>
-      {items.map((item) => (
-        <DeathItem key={item.death_id} item={item}></DeathItem>
+      {deaths.map((death) => (
+        <DeathItem key={death.death_id} death={death}></DeathItem>
       ))}
     </section>
   );
