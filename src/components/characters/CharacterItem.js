@@ -1,31 +1,30 @@
 import React from 'react';
+import { Card, CardFront, CardBack, CardTitle, CardImage } from '../../style';
 
 const CharacterItem = ({ character }) => {
   return (
-    <div className='card'>
-      <div className='card-inner'>
-        <div className='card-front'>
-          <img src={character.img} alt='' />
-        </div>
-        <div className='card-back'>
-          <h1>{character.name}</h1>
-          <ul>
-            <li>
-              <strong>Actor Name:</strong> {character.portrayed}
-            </li>
-            <li>
-              <strong>Nickname:</strong> {character.nickname}
-            </li>
-            <li>
-              <strong>Birthday:</strong> {character.birthday}
-            </li>
-            <li>
-              <strong>Status:</strong> {character.status}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <CardFront>
+        <CardImage src={character.img} alt='' />
+      </CardFront>
+      <CardBack>
+        <CardTitle>{character.name}</CardTitle>
+        <ul>
+          <li>
+            <strong>Actor Name:</strong> {character.portrayed}
+          </li>
+          <li>
+            <strong>Nickname:</strong> {character.nickname}
+          </li>
+          <li>
+            <strong>Birthday:</strong> {character.birthday}
+          </li>
+          <li>
+            <strong>Status:</strong> {character.status}
+          </li>
+        </ul>
+      </CardBack>
+    </Card>
   );
 };
 

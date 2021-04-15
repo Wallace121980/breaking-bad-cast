@@ -4,7 +4,7 @@ import { Card, CardFront, CardBack, CardTitle } from '../../style';
 const QuoteItem = ({ quote }) => {
   return (
     <Card>
-      <CardFront>
+      <CardFront padding>
         <CardTitle>{quote.author}</CardTitle>
       </CardFront>
       <CardBack>

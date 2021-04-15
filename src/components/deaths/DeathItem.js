@@ -4,7 +4,7 @@ import { Card, CardFront, CardBack, CardTitle } from '../../style';
 const DeathItem = ({ death }) => {
   return (
     <Card>
-      <CardFront>
+      <CardFront padding>
         <CardTitle>{death.death}</CardTitle>
       </CardFront>
       <CardBack>
